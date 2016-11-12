@@ -1,14 +1,11 @@
 'use strict';
-const React = require('react');
-const ReactRouter = require('react-router');
-const ClassNames = require('classnames');
+import React from 'react';
+import {Link} from 'react-router';
+import ClassNames from 'classnames';
 
-
-const Link = ReactRouter.Link;
 const propTypes = {
   location: React.PropTypes.object
 };
-
 
 class Navbar extends React.Component {
   constructor(props) {

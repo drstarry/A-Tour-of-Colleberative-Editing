@@ -91,26 +91,24 @@ class HomePage extends React.Component {
             type="submit"
             inputClasses={{ 'btn-primary': true }}
             disabled={this.state.loading}>
-
             Login
             <Spinner space="left" show={this.state.loading} />
           </Button>
-          &nbsp;
-          <Button
-            style={{marginLeft: 10}}
+          <br/>
+          <br/>
+          <a
+            className='btn btn-success'
             href="/signup"
-            inputClasses={{ 'btn-success': true }}
-            disabled={this.state.loading}>
+            >
             Signup
-          </Button>
+          </a>
           &nbsp;
-          <Button
-            style={{marginLeft: 10}}
+          <a
+            className='btn btn-warning'
             href="/login/forgot"
-            inputClasses={{'btn-warning': true }}
-            disabled={this.state.loading}>
+            >
             Reset your password
-          </Button>
+          </a>
         </ControlGroup>
       </fieldset>;
     }

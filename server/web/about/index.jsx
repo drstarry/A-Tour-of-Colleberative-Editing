@@ -10,6 +10,13 @@ class AboutPage extends React.Component {
       <Layout
         title="About us"
         activeTab="about">
+        <div style={{ marginBottom: 20}} className="footer">
+          <div className="container">
+            <span className="copyright pull-right">
+            &copy; 2016 <a href="https://github.com/drstarry">Starry</a>
+            </span>
+          </div>
+        </div>
       </Layout>
     );
   }

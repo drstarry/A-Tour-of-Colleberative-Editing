@@ -3,7 +3,6 @@
 const ReactDOM = require('react-dom');
 const Routes = require('./routes.jsx');
 
-
 class Page {
   static blastoff() {
 

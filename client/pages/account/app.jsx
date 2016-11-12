@@ -1,5 +1,4 @@
 'use strict';
-const Footer = require('./footer.jsx');
 const Navbar = require('./navbar.jsx');
 const React = require('react');
 
@@ -15,7 +14,6 @@ class App extends React.Component {
       <div>
         <Navbar location={this.props.location} />
         {this.props.children}
-        <Footer />
       </div>
     );
   }

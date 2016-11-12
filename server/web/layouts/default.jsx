@@ -33,14 +33,6 @@ class DefaultLayout extends React.Component {
               {this.props.children}
             </div>
           </div>
-          <div className="footer">
-            <div className="container">
-              <span className="copyright pull-right">
-                &copy; {year} <a href="https://github.com/drstarry">Starry</a>
-              </span>
-              <div className="clearfix"></div>
-            </div>
-          </div>
           <script src="/public/core.min.js"></script>
           {this.props.feet}
         </body>
