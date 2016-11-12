@@ -23,7 +23,7 @@ class Navbar extends React.Component {
         <div className="container">
           <div className="navbar-header">
             <Link className="navbar-brand">
-              <span className="navbar-brand-label">OT/CRDT</span>
+              <span className="navbar-brand-label">OT/CRDS</span>
             </Link>
             </div>
           <div className="navbar-collapse collapse">
