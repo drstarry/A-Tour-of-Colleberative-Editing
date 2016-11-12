@@ -169,9 +169,6 @@ const manifest = {
             plugin: './server/web/admin'
         },
         {
-            plugin: './server/web/contact'
-        },
-        {
             plugin: './server/web/home'
         },
         {

@@ -14,13 +14,13 @@ const browserHistory = ReactRouter.browserHistory;
 
 
 const Routes = (
-    <Router history={browserHistory}>
-        <Route path="/login" component={Home} />
-        <Route path="/login/forgot" component={Forgot} />
-        <Route path="/login/reset/:email/:key" component={Reset} />
-        <Route path="/login/logout" component={Logout} />
-        <Route path="*" component={NotFound} />
-    </Router>
+  <Router history={browserHistory}>
+    <Route path="/login" component={Home} />
+    <Route path="/login/forgot" component={Forgot} />
+    <Route path="/login/reset/:email/:key" component={Reset} />
+    <Route path="/login/logout" component={Logout} />
+    <Route path="*" component={NotFound} />
+  </Router>
 );
 
 

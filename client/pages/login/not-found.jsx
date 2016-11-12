@@ -7,16 +7,16 @@ const Link = ReactRouter.Link;
 
 
 class NotFoundPage extends React.Component {
-    render() {
+  render() {
 
-        return (
-            <section className="container">
-                <h1 className="page-header">Not Found</h1>
-                <p>That route didn't match any handlers.</p>
-                <Link to="/login">Back to login</Link>
-            </section>
-        );
-    }
+    return (
+      <section className="container">
+        <h1 className="page-header">Not Found</h1>
+        <p>That route didn't match any handlers.</p>
+        <Link to="/login">Back to login</Link>
+      </section>
+    );
+  }
 }
 
 

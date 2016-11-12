@@ -5,13 +5,13 @@ const Manifest = require('./manifest');
 
 
 const composeOptions = {
-    relativeTo: __dirname,
-    preRegister: function (server, next) {
+  relativeTo: __dirname,
+  preRegister: function (server, next) {
 
-        BabelRegister();
+    BabelRegister();
 
-        next();
-    }
+    next();
+  }
 };
 
 

@@ -6,7 +6,7 @@ const Joi = require('joi');
 const internals = {};
 
 
-internals.applyRoutes = function (server, next) {
+internals.applyRoutes = function(server, next) {
 
     server.route({
         method: 'POST',
@@ -20,7 +20,7 @@ internals.applyRoutes = function (server, next) {
                 }
             }
         },
-        handler: function (request, reply) {
+        handler: function(request, reply) {
 
             const mailer = server.plugins.mailer;
             const emailOptions = {
@@ -39,7 +39,9 @@ internals.applyRoutes = function (server, next) {
                     return reply(err);
                 }
 
-                reply({ message: 'Success.' });
+                reply({
+                    message: 'Success.'
+                });
             });
         }
     });
@@ -49,7 +51,7 @@ internals.applyRoutes = function (server, next) {
 };
 
 
-exports.register = function (server, options, next) {
+exports.register = function(server, options, next) {
 
     server.dependency('mailer', internals.applyRoutes);
 

@@ -6,22 +6,22 @@ const Store = require('./store');
 
 
 class Actions {
-    static sendRequest(data) {
+  static sendRequest(data) {
 
-        ApiActions.post(
-            '/api/signup',
-            data,
-            Store,
-            Constants.REGISTER,
-            Constants.REGISTER_RESPONSE,
-            (err, response) => {
+    ApiActions.post(
+      '/api/signup',
+      data,
+      Store,
+      Constants.REGISTER,
+      Constants.REGISTER_RESPONSE,
+      (err, response) => {
 
-                if (!err) {
-                    window.location.href = '/account';
-                }
-            }
-        );
-    }
+        if (!err) {
+          window.location.href = '/account';
+        }
+      }
+    );
+  }
 };
 
 

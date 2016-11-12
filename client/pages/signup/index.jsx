@@ -6,13 +6,13 @@ const ReactDOM = require('react-dom');
 
 
 class Page {
-    static blastoff() {
+  static blastoff() {
 
-        this.mainElement = ReactDOM.render(
-            <Form />,
-            window.document.getElementById('app-mount')
-        );
-    }
+    this.mainElement = ReactDOM.render(
+      <Form />,
+      window.document.getElementById('app-mount')
+    );
+  }
 }
 
 
@@ -21,7 +21,7 @@ module.exports = Page;
 
 /* $lab:coverage:off$ */
 if (!module.parent) {
-    window.page = Page;
-    Page.blastoff();
+  window.page = Page;
+  Page.blastoff();
 }
 /* $lab:coverage:on$ */

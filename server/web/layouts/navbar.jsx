@@ -1,62 +1,52 @@
 'use strict';
 const ClassNames = require('classnames');
 const React = require('react');
-
+const ReactRouter = require('react-router');
+const Link = ReactRouter.Link;
 
 const propTypes = {
-    activeTab: React.PropTypes.string
+  activeTab: React.PropTypes.string
 };
 
 class Navbar extends React.Component {
-    tabClass(tab) {
+  tabClass(tab) {
 
-        return ClassNames({
-            active: this.props.activeTab === tab
-        });
-    }
+    return ClassNames({
+      active: this.props.activeTab === tab
+    });
+  }
 
-    render() {
+  render() {
 
-        return (
-            <div className="navbar navbar-default navbar-fixed-top">
-                <div className="container">
-                    <div className="navbar-header">
-                        <a className="navbar-brand" href="/">
-                            <img
-                                className="navbar-logo"
-                                src="/public/media/logo-square.png"
-                            />
-                            <span className="navbar-brand-label">Aqua</span>
-                        </a>
-                    </div>
-                    <div className="navbar-collapse collapse">
-                        <ul className="nav navbar-nav">
-                            <li className={this.tabClass('home')}>
-                                <a href="/">Home</a>
-                            </li>
-                            <li className={this.tabClass('about')}>
-                                <a href="/about">About</a>
-                            </li>
-                            <li className={this.tabClass('signup')}>
-                                <a href="/signup">Sign up</a>
-                            </li>
-                            <li className={this.tabClass('contact')}>
-                                <a href="/contact">Contact</a>
-                            </li>
-                        </ul>
-                        <ul className="nav navbar-nav navbar-right">
-                            <li className={this.tabClass('login')}>
-                                <a href="/login">Sign in</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    return (
+      <div className="navbar navbar-default navbar-fixed-top">
+        <div className="container">
+          <div className="navbar-header">
+            <Link className="navbar-brand">
+              <span className="navbar-brand-label">OT/CRDT</span>
+            </Link>
             </div>
-        );
-    }
+          <div className="navbar-collapse collapse">
+            <ul className="nav navbar-nav navbar-right">
+              <li className={this.tabClass('login')}>
+                <a href="/login">Sign in</a>
+              </li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li className={this.tabClass('home')}>
+                <a href="/">Introduction</a>
+              </li>
+              <li className={this.tabClass('about')}>
+                <a href="/about">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 Navbar.propTypes = propTypes;
-
 
 module.exports = Navbar;

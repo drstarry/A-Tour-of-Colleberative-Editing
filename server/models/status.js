@@ -5,23 +5,23 @@ const Slug = require('slug');
 
 
 class Status extends MongoModels {
-    static create(pivot, name, callback) {
+  static create(pivot, name, callback) {
 
-        const document = {
-            _id: Slug(pivot + ' ' + name).toLowerCase(),
-            pivot,
-            name
-        };
+    const document = {
+      _id: Slug(pivot + ' ' + name).toLowerCase(),
+      pivot,
+      name
+    };
 
-        this.insertOne(document, (err, docs) => {
+    this.insertOne(document, (err, docs) => {
 
-            if (err) {
-                return callback(err);
-            }
+      if (err) {
+        return callback(err);
+      }
 
-            callback(null, docs[0]);
-        });
-    }
+      callback(null, docs[0]);
+    });
+  }
 }
 
 
@@ -32,15 +32,15 @@ Status._idClass = String;
 
 
 Status.schema = Joi.object().keys({
-    _id: Joi.string(),
-    pivot: Joi.string().required(),
-    name: Joi.string().required()
+  _id: Joi.string(),
+  pivot: Joi.string().required(),
+  name: Joi.string().required()
 });
 
 
 Status.indexes = [
-    { key: { pivot: 1 } },
-    { key: { name: 1 } }
+  { key: { pivot: 1 } },
+  { key: { name: 1 } }
 ];
 
 

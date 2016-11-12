@@ -4,60 +4,57 @@ const ControlGroup = require('./control-group.jsx');
 const ObjectAssign = require('object-assign');
 const React = require('react');
 
-
 const propTypes = {
-    disabled: React.PropTypes.bool,
-    hasError: React.PropTypes.bool,
-    help: React.PropTypes.string,
-    inputClasses: React.PropTypes.object,
-    label: React.PropTypes.string,
-    name: React.PropTypes.string,
-    onChange: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    rows: React.PropTypes.string,
-    value: React.PropTypes.string
+  disabled: React.PropTypes.bool,
+  hasError: React.PropTypes.bool,
+  help: React.PropTypes.string,
+  inputClasses: React.PropTypes.object,
+  label: React.PropTypes.string,
+  name: React.PropTypes.string,
+  onChange: React.PropTypes.func,
+  placeholder: React.PropTypes.string,
+  rows: React.PropTypes.string,
+  value: React.PropTypes.string
 };
 
-
 class TextareaControl extends React.Component {
-    focus() {
+  focus() {
 
-        return this.input.focus();
-    }
+    return this.input.focus();
+  }
 
-    value() {
+  value() {
 
-        return this.input.value;
-    }
+    return this.input.value;
+  }
 
-    render() {
+  render() {
 
-        const inputClasses = ClassNames(ObjectAssign({
-            'form-control': true
-        }, this.props.inputClasses));
+    const inputClasses = ClassNames(ObjectAssign({
+      'form-control': true
+    }, this.props.inputClasses));
 
-        return (
-            <ControlGroup
-                hasError={this.props.hasError}
-                label={this.props.label}
-                help={this.props.help}>
+    return (
+      <ControlGroup
+        hasError={this.props.hasError}
+        label={this.props.label}
+        help={this.props.help}>
 
-                <textarea
-                    ref={(c) => (this.input = c)}
-                    className={inputClasses}
-                    name={this.props.name}
-                    rows={this.props.rows}
-                    placeholder={this.props.placeholder}
-                    value={this.props.value}
-                    disabled={this.props.disabled ? 'disabled' : undefined}
-                    onChange={this.props.onChange}
-                />
-            </ControlGroup>
-        );
-    }
+        <textarea
+          ref={(c) => (this.input = c)}
+          className={inputClasses}
+          name={this.props.name}
+          rows={this.props.rows}
+          placeholder={this.props.placeholder}
+          value={this.props.value}
+          disabled={this.props.disabled ? 'disabled' : undefined}
+          onChange={this.props.onChange}
+        />
+      </ControlGroup>
+    );
+  }
 }
 
 TextareaControl.propTypes = propTypes;
-
 
 module.exports = TextareaControl;

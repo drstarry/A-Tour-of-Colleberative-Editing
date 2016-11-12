@@ -5,22 +5,20 @@ const Routes = require('./routes.jsx');
 
 
 class Page {
-    static blastoff() {
+  static blastoff() {
 
-        this.mainElement = ReactDOM.render(
-            Routes,
-            window.document.getElementById('app-mount')
-        );
-    }
+    this.mainElement = ReactDOM.render(
+      Routes,
+      window.document.getElementById('app-mount')
+    );
+  }
 }
-
 
 module.exports = Page;
 
-
 /* $lab:coverage:off$ */
 if (!module.parent) {
-    window.page = Page;
-    Page.blastoff();
+  window.page = Page;
+  Page.blastoff();
 }
 /* $lab:coverage:on$ */

@@ -10,66 +10,66 @@ const ResetStore = require('./reset/store');
 
 
 class Actions {
-    static forgot(data) {
+  static forgot(data) {
 
-        ApiActions.post(
-            '/api/login/forgot',
-            data,
-            ForgotStore,
-            Constants.FORGOT,
-            Constants.FORGOT_RESPONSE
-        );
-    }
+    ApiActions.post(
+      '/api/login/forgot',
+      data,
+      ForgotStore,
+      Constants.FORGOT,
+      Constants.FORGOT_RESPONSE
+    );
+  }
 
-    static login(data) {
+  static login(data) {
 
-        ApiActions.post(
-            '/api/login',
-            data,
-            LoginStore,
-            Constants.LOGIN,
-            Constants.LOGIN_RESPONSE,
-            (err, response) => {
+    ApiActions.post(
+      '/api/login',
+      data,
+      LoginStore,
+      Constants.LOGIN,
+      Constants.LOGIN_RESPONSE,
+      (err, response) => {
 
-                if (!err) {
-                    const returnUrl = window.localStorage.getItem('returnUrl');
+        if (!err) {
+          const returnUrl = window.localStorage.getItem('returnUrl');
 
-                    if (returnUrl) {
-                        ReturnUrlActions.clearReturnUrl();
-                        window.location.href = returnUrl;
-                    }
-                    else if (response.user.roles.admin) {
-                        window.location.href = '/admin';
-                    }
-                    else {
-                        window.location.href = '/account';
-                    }
-                }
-            }
-        );
-    }
+          if (returnUrl) {
+            ReturnUrlActions.clearReturnUrl();
+            window.location.href = returnUrl;
+          }
+          else if (response.user.roles.admin) {
+            window.location.href = '/admin';
+          }
+          else {
+            window.location.href = '/account';
+          }
+        }
+      }
+    );
+  }
 
-    static logout() {
+  static logout() {
 
-        ApiActions.delete(
-            '/api/logout',
-            undefined,
-            LogoutStore,
-            Constants.LOGOUT,
-            Constants.LOGOUT_RESPONSE
-        );
-    }
+    ApiActions.delete(
+      '/api/logout',
+      undefined,
+      LogoutStore,
+      Constants.LOGOUT,
+      Constants.LOGOUT_RESPONSE
+    );
+  }
 
-    static reset(data) {
+  static reset(data) {
 
-        ApiActions.post(
-            '/api/login/reset',
-            data,
-            ResetStore,
-            Constants.RESET,
-            Constants.RESET_RESPONSE
-        );
-    }
+    ApiActions.post(
+      '/api/login/reset',
+      data,
+      ResetStore,
+      Constants.RESET,
+      Constants.RESET_RESPONSE
+    );
+  }
 }
 
 

@@ -3,21 +3,21 @@
 
 
 class Actions {
-    static saveReturnUrl() {
+  static saveReturnUrl() {
 
-        let returnUrl = window.location.pathname;
+    let returnUrl = window.location.pathname;
 
-        if (window.location.search.length > 0) {
-            returnUrl += window.location.search;
-        }
-
-        window.localStorage.setItem('returnUrl', returnUrl);
+    if (window.location.search.length > 0) {
+      returnUrl += window.location.search;
     }
 
-    static clearReturnUrl() {
+    window.localStorage.setItem('returnUrl', returnUrl);
+  }
 
-        window.localStorage.removeItem('returnUrl');
-    }
+  static clearReturnUrl() {
+
+    window.localStorage.removeItem('returnUrl');
+  }
 }
 
 

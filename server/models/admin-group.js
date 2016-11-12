@@ -5,31 +5,31 @@ const Slug = require('slug');
 
 
 class AdminGroup extends MongoModels {
-    static create(name, callback) {
+  static create(name, callback) {
 
-        const document = {
-            _id: Slug(name).toLowerCase(),
-            name
-        };
+    const document = {
+      _id: Slug(name).toLowerCase(),
+      name
+    };
 
-        this.insertOne(document, (err, docs) => {
+    this.insertOne(document, (err, docs) => {
 
-            if (err) {
-                return callback(err);
-            }
+      if (err) {
+        return callback(err);
+      }
 
-            callback(null, docs[0]);
-        });
+      callback(null, docs[0]);
+    });
+  }
+
+  hasPermissionTo(permission) {
+
+    if (this.permissions && this.permissions.hasOwnProperty(permission)) {
+      return this.permissions[permission];
     }
 
-    hasPermissionTo(permission) {
-
-        if (this.permissions && this.permissions.hasOwnProperty(permission)) {
-            return this.permissions[permission];
-        }
-
-        return false;
-    }
+    return false;
+  }
 }
 
 
@@ -40,9 +40,9 @@ AdminGroup._idClass = String;
 
 
 AdminGroup.schema = Joi.object().keys({
-    _id: Joi.string(),
-    name: Joi.string().required(),
-    permissions: Joi.object().description('{ permission: boolean, ... }')
+  _id: Joi.string(),
+  name: Joi.string().required(),
+  permissions: Joi.object().description('{ permission: boolean, ... }')
 });
 
 

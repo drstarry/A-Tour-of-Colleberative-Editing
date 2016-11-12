@@ -1,7 +1,6 @@
 'use strict';
 const ObjectAssign = require('object-assign');
 
-
 /**
  * To be used with `onChange` handlers for form elements. This
  * will handle setting deep state paths when `event.target.name`

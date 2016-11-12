@@ -3,20 +3,20 @@
 
 exports.register = function (server, options, next) {
 
-    server.route({
-        method: 'GET',
-        path: '/',
-        handler: function (request, reply) {
+  server.route({
+    method: 'GET',
+    path: '/',
+    handler: function (request, reply) {
 
-            return reply.view('home/index');
-        }
-    });
+      return reply.view('home/index');
+    }
+  });
 
 
-    next();
+  next();
 };
 
 
 exports.register.attributes = {
-    name: 'web/home'
+  name: 'web/home'
 };
