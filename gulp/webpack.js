@@ -58,8 +58,10 @@ Gulp.task('webpack', (callback) => {
           presets: ['react', 'es2015']
         },
       },
-      {test: /\.json$/, loader: "json"}
-     ]
+      {
+        test: /\.json$/,
+        loader: 'json'
+      }]
     },
     devtool,
     plugins

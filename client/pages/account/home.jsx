@@ -5,9 +5,10 @@ import {Editor, EditorState} from 'draft-js';
 
 const styles = {
   root: {
-    fontFamily: '\'Helvetica\', sans-serif',
+    fontFamily: '\'Indie Flower\', cursive',
     padding: 20,
     width: 600,
+    fontSize: 'large',
   },
   editor: {
     border: '1px solid #ccc',
@@ -26,9 +27,7 @@ class HomePage extends React.Component {
   constructor(props) {
 
     super(props);
-
     this.state = {editorState: EditorState.createEmpty()};
-
     this.focus = () => this.refs.editor.focus();
     this.onChange = (editorState) => this.setState({editorState});
     this.logState = () => console.log(this.state.editorState.toJS());
@@ -36,18 +35,24 @@ class HomePage extends React.Component {
 
   componentDidMount() {
 
-    // this.interval = setInterval(this.refreshTime.bind(this), 1000);
   }
 
   componentWillUnmount() {
 
-    // clearInterval(this.interval);
+  }
+
+  componentDidUpdate() {
+    console.log(
+      this.state
+      .editorState
+      .getCurrentContent()
+      .getPlainText()
+    );
   }
 
   render() {
-    console.log("asd");
     return (
-      <section height="100%" className="section-home container">
+      <section className="section-home container">
         <div className="row">
           <div className="col-sm-8">
             <div style={styles.root}>
@@ -55,7 +60,7 @@ class HomePage extends React.Component {
                 <Editor
                   editorState={this.state.editorState}
                   onChange={this.onChange}
-                  placeholder="Enter your text :)"
+                  placeholder="I love Distributed System :)"
                   ref="editor"
                 />
               </div>

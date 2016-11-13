@@ -8,7 +8,6 @@ const LoginStore = require('./home/store');
 const LogoutStore = require('./logout/store');
 const ResetStore = require('./reset/store');
 
-
 class Actions {
   static forgot(data) {
 
@@ -71,6 +70,5 @@ class Actions {
     );
   }
 }
-
 
 module.exports = Actions;

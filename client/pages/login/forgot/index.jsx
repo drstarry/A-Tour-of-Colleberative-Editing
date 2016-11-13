@@ -97,7 +97,13 @@ class ForgotPage extends React.Component {
 
     return (
       <section>
-        <h1 className="page-header">Forgot your password?</h1>
+        <h1 className="page-header">
+          <img
+            className="navbar-logo"
+            src="/public/media/forget.png"
+            />
+          Forgot your password?
+        </h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
           {alerts}
           {formElements}

@@ -1,11 +1,9 @@
 'use strict';
-const Layout = require('../layouts/default.jsx');
-const React = require('react');
-
+import Layout from '../layouts/default.jsx';
+import React from 'react';
 
 class HomePage extends React.Component {
  render() {
-
   const neck = <link rel='stylesheet' href="/public/pages/home.min.css" />;
 
   return (
@@ -17,6 +15,5 @@ class HomePage extends React.Component {
   );
  }
 }
-
 
 module.exports = HomePage;

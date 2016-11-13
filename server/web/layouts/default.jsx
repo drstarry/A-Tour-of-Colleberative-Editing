@@ -2,7 +2,6 @@
 const Navbar = require('./navbar.jsx');
 const React = require('react');
 
-
 const propTypes = {
   activeTab: React.PropTypes.string,
   children: React.PropTypes.node,
@@ -10,6 +9,8 @@ const propTypes = {
   neck: React.PropTypes.node,
   title: React.PropTypes.string
 };
+
+
 
 class DefaultLayout extends React.Component {
   render() {
@@ -24,9 +25,10 @@ class DefaultLayout extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="stylesheet" href="/public/core.min.css" />
           <link rel="stylesheet" href="/public/layouts/default.min.css" />
-          {this.props.neck}
+          <link rel="shortcut icon" href="/public/media/logo.svg"/>
+          <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Titillium+Web" rel="stylesheet"/>
         </head>
-        <body>
+        <body style={{fontFamily: '\'Titillium Web\', sans-serif'}}>
           <Navbar activeTab={this.props.activeTab} />
           <div className="page">
             <div className="container">

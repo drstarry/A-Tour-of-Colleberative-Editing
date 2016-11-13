@@ -53,6 +53,27 @@ internals.applyRoutes = function(server, next) {
     }
   });
 
+  server.route({
+    method: 'GET',
+    path: '/accounts/all',
+    config: {
+      auth: {
+        strategy: 'session',
+        scope: 'account',
+      },
+    },
+    handler: function(request, reply) {
+
+      Account.findAll({}, (err, results) => {
+
+        if (err) {
+          return reply(err);
+        }
+
+        reply(results);
+      });
+    },
+  });
 
   server.route({
     method: 'GET',

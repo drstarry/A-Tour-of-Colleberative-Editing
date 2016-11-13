@@ -1,14 +1,13 @@
 'use strict';
-const Actions = require('../actions');
-const Button = require('../../../components/form/button.jsx');
-const ControlGroup = require('../../../components/form/control-group.jsx');
-const React = require('react');
-const ReactRouter = require('react-router');
-const Spinner = require('../../../components/form/spinner.jsx');
-const Store = require('./store');
-const TextControl = require('../../../components/form/text-control.jsx');
-
-const Link = ReactRouter.Link;
+import Actions from '../actions';
+import Button from '../../../components/form/button.jsx';
+import ControlGroup from '../../../components/form/control-group.jsx';
+import React from 'react';
+import Link from 'react-router';
+import Spinner from '../../../components/form/spinner.jsx';
+import Store from './store';
+import TextControl from '../../../components/form/text-control.jsx';
+import Markdown from 'react-remarkable';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -72,7 +71,7 @@ class HomePage extends React.Component {
         <TextControl
           ref={(c) => (this.input.username = c)}
           name="username"
-          label="Username or email"
+          label="Username/Email"
           hasError={this.state.hasError.username}
           help={this.state.help.username}
           disabled={this.state.loading}
@@ -112,15 +111,24 @@ class HomePage extends React.Component {
         </ControlGroup>
       </fieldset>;
     }
-
+    const input = '# This is a header\n\nAnd this is a paragraph';
     return (
+      <div>
       <section>
-        <h1 className="page-header">Sign in</h1>
+        <h1 className="page-header">
+          <img
+            className="navbar-logo"
+            src="/public/media/login.png"
+            />
+          Sign in
+        </h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
           {alerts}
           {formElements}
         </form>
       </section>
+
+      </div>
     );
   }
 }

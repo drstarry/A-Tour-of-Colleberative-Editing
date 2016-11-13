@@ -32,20 +32,17 @@ class Account extends MongoModels {
   static findByUsername(username, callback) {
 
     const query = { 'user.name': username.toLowerCase() };
-
     this.findOne(query, callback);
   }
 }
 
-
 Account.collection = 'accounts';
-
 
 Account.schema = Joi.object().keys({
   _id: Joi.object(),
   user: Joi.object().keys({
     id: Joi.string().required(),
-    name: Joi.string().lowercase().required()
+    name: Joi.string().lowercase().required(),
   }),
   name: Joi.object().keys({
     first: Joi.string().required(),

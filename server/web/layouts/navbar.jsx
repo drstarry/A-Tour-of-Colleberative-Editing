@@ -23,6 +23,10 @@ class Navbar extends React.Component {
         <div className="container">
           <div className="navbar-header">
             <Link className="navbar-brand">
+              <img
+                className="navbar-logo"
+                src="/public/media/topo.png"
+                />
               <span className="navbar-brand-label">OT/CRDS</span>
             </Link>
             </div>

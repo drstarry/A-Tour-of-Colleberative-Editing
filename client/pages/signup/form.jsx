@@ -118,7 +118,13 @@ class Form extends React.Component {
 
     return (
       <section>
-        <h1 className="page-header">Sign up</h1>
+        <h1 className="page-header">
+          <img
+            className="navbar-logo"
+            src="/public/media/signup.png"
+            />
+          Sign up
+        </h1>
         <form onSubmit={this.handleSubmit.bind(this)}>
           {alert}
           {formElements}
