@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 import ClassNames from 'classnames';
 
 const propTypes = {
-  location: React.PropTypes.object
+  location: React.PropTypes.object,
 };
 
 class Navbar extends React.Component {
@@ -25,7 +25,7 @@ class Navbar extends React.Component {
   isPathActive(path) {
 
     return ClassNames({
-      active: this.props.location.pathname === path
+      active: this.props.location.pathname === path,
     });
   }
 
@@ -38,7 +38,7 @@ class Navbar extends React.Component {
 
     const navBarCollapse = ClassNames({
       'navbar-collapse': true,
-      collapse: !this.state.navBarOpen
+      collapse: !this.state.navBarOpen,
     });
 
     return (
@@ -50,7 +50,7 @@ class Navbar extends React.Component {
                 className="navbar-logo"
                 src="/public/media/topo.png"
                 />
-              <span className="navbar-brand-label">OT/CRDS</span>
+              <span className="navbar-brand-label">OT/CRDT</span>
             </Link>
             <button
               className="navbar-toggle collapsed"

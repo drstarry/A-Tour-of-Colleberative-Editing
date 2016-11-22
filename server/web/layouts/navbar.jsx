@@ -27,7 +27,7 @@ class Navbar extends React.Component {
                 className="navbar-logo"
                 src="/public/media/topo.png"
                 />
-              <span className="navbar-brand-label">OT/CRDS</span>
+              <span className="navbar-brand-label">OT/CRDT</span>
             </Link>
             </div>
           <div className="navbar-collapse collapse">

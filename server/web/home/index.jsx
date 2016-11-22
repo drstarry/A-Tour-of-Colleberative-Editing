@@ -8,7 +8,7 @@ class HomePage extends React.Component {
 
   return (
    <Layout
-    title="OT/CRDS"
+    title="OT/CRDT"
     neck={neck}
     activeTab="home">
    </Layout>
