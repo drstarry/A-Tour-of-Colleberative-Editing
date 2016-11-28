@@ -26,7 +26,7 @@ export default class Content {
   // apply an inter-replica insert
   insert(ins) {
     this.text.addAfter(ins.preChrId, ins.chr);
-      this.id = this.text.length();
+    this.id = this.text.length();
   }
 
   // apply an inter-replica Delete
