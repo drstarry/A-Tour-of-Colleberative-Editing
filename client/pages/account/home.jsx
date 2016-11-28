@@ -1,53 +1,57 @@
 'use strict';
 import Moment from 'moment';
 import React from 'react';
-import {Editor, EditorState} from 'draft-js';
+import {styles} from './styles';
 
-const styles = {
-  root: {
-    fontFamily: '\'Indie Flower\', cursive',
-    padding: 20,
-    width: 600,
-    fontSize: 'large',
-  },
-  editor: {
-    border: '1px solid #ccc',
-    cursor: 'text',
-    minHeight: 600,
-    padding: 10,
-  },
-  button: {
-    marginTop: 10,
-    textAlign: 'center',
-  },
-};
+import Content from '../CRDT/Content';
 
 class HomePage extends React.Component {
 
   constructor(props) {
-
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
-    this.focus = () => this.refs.editor.focus();
-    this.onChange = (editorState) => this.setState({editorState});
-    this.logState = () => console.log(this.state.editorState.toJS());
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillUnmount() {
-
+    this.state = {value: '', len: 0, user: 'daidai'};
+    // this.content = Content(user);
+    this.getCursor = this.getCursor.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   componentDidUpdate() {
-    console.log(
-      this.state
-      .editorState
-      .getCurrentContent()
-      .getPlainText()
-    );
+  }
+
+  onChange(evt) {
+    const text = this.refs.text;
+    this.setState({value: evt.target.value});
+    let loc;
+    let ch = null;
+    let type;
+    if (text.value.length > this.state.len) {
+      // insert operation
+      loc = this.getCursor() - 1;
+      ch = evt.target.value[loc];
+      type = 'ins';
+    } else {
+      // delete operation
+      loc = this.getCursor();
+      type = 'del';
+    }
+    console.log(`${loc}, ${type}, ${ch}`);
+    this.setState({len: text.value.length});
+    // op = this.content.apply(loc, type, ch);
+  }
+
+  getCursor() {
+    const text = this.refs.text;
+    let CaretPos = 0;
+
+    // IE Support
+    if (document.selection) {
+      text.focus();
+      let Sel = document.selection.createRange();
+      Sel.moveStart('character', -text.value.length);
+      CaretPos = Sel.text.length;
+    } else if (text.selectionStart || text.selectionStart == '0')
+      CaretPos = text.selectionStart;
+    return CaretPos;
   }
 
   render() {
@@ -55,16 +59,13 @@ class HomePage extends React.Component {
       <section className="section-home container">
         <div className="row">
           <div className="col-sm-8">
-            <div style={styles.root}>
-              <div style={styles.editor} onClick={this.focus}>
-                <Editor
-                  editorState={this.state.editorState}
-                  onChange={this.onChange}
-                  placeholder="I love Distributed System :)"
-                  ref="editor"
-                />
-              </div>
-            </div>
+            <textarea
+              ref='text'
+              id='text'
+              style={styles}
+              value={this.state.value}
+              onChange={this.onChange}
+            />
           </div>
           <div className="col-sm-4">
 
