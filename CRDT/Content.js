@@ -9,7 +9,7 @@ export default class Content {
   constructor(user) {
     this.user = user;
     this.id = 0; // current available id for each Chr obj
-    this.text = Text();
+    this.text = new Text();
   }
 
   // apply an inner-replica operation
