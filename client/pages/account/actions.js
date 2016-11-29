@@ -35,6 +35,34 @@ class Actions {
     );
   }
 
+  static me(data) {
+
+    ApiActions.get(
+      '/api/users/my',
+      undefined,
+      LoginStore,
+      Constants.LOGIN,
+      Constants.LOGIN_RESPONSE,
+      (err, response) => {
+
+        if (!err) {
+          const returnUrl = window.localStorage.getItem('returnUrl');
+
+          if (returnUrl) {
+            ReturnUrlActions.clearReturnUrl();
+            window.location.href = returnUrl;
+          }
+          else if (response.user.roles.admin) {
+            window.location.href = '/admin';
+          }
+          else {
+            window.location.href = '/account';
+          }
+        }
+      }
+    );
+  }
+
 }
 
 module.exports = Actions;

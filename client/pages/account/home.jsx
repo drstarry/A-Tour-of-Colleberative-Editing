@@ -10,7 +10,7 @@ class HomePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: '', len: 0, user: 'daidai'};
-    this.content = Content(user);
+    this.content = Content(this.state.user);
     this.getCursor = this.getCursor.bind(this);
     this.onChange = this.onChange.bind(this);
   }
