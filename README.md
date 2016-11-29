@@ -2,9 +2,50 @@
 Collaborative Editing: Concepts behind the scene and a simple demo
 
 ### Credits:
-- [Aqua](https://github.com/jedireza/aqua) for user system.
-- [Freepik](http://www.flaticon.com/authors/freepik), [Madebyoliver](http://www.flaticon.com/authors/madebyoliver) for free Icon Logo.
-- [Draft.js](https://facebook.github.io/draft-js/) for awesome editor Component.
+- Huge thanks to [Aqua](https://github.com/jedireza/aqua) for boilerplate.
+- [Freepik](http://www.flaticon.com/authors/freepik), [Madebyoliver](http://www.flaticon.com/authors/madebyoliver) for free Icon.
 
+## Dev Usage
+### Requirements
 
-<div>Icons made by <a href="http://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+- [Node.js](http://nodejs.org/download/)
+- [MongoDB](http://www.mongodb.org/downloads)
+- [`bcrypt`](https://github.com/ncb000gt/node.bcrypt.js)
+
+### Installation
+
+```bash
+$ npm install
+```
+### First time setup
+
+```bash
+$ npm run first-time-setup
+```
+
+### Run
+
+```bash
+$ npm start
+```
+
+Point your browser to http://127.0.0.1:8000/.
+
+[`nodemon`](https://github.com/remy/nodemon) watches for changes in server code
+and restarts the app automatically. [`gulp`](https://github.com/gulpjs/gulp) and
+[`webpack`](https://github.com/webpack/webpack) watch the front-end files and
+re-build those automatically too.
+
+### Running in production
+
+```bash
+$ node server.js
+```
+
+This doesn't watch for file changes. Also be sure to set
+these environment variables in your production environment:
+
+ - `NODE_ENV=production` - This is important for many different optimizations,
+   both server-side and with the front-end build files.
+ - `NPM_CONFIG_PRODUCTION=false` - This tells `$ npm install` to not skip
+   installing `devDependencies`, which we need to build the front-end files.
