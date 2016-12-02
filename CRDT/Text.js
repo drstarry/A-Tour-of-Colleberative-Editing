@@ -31,7 +31,7 @@ export default class Text {
 
     let idx = 0;
     let cur = this.head;
-    while (idx < loc) {
+    while (idx < loc || cur.val.del) {
       if (!cur.val.del) {
         idx++;
       }
@@ -55,7 +55,7 @@ export default class Text {
   remove(loc) {
     let idx = -1;
     let cur = this.head;
-    while (idx < loc) {
+    while (idx < loc || cur.val.del) {
       if (!cur.val.del) {
         idx++;
       }
@@ -105,7 +105,7 @@ export default class Text {
       return;
     }
 
-    if (!cur.val.del) {
+    if (cur.val.getChrId() === chrId && !cur.val.del) {
       // remove the location by setting the flag
       cur.val.del = true;
       this.length--;
@@ -118,6 +118,23 @@ export default class Text {
     let str = '';
     while (cur !== this.tail) {
       if (!cur.val.del) {
+        str += cur.val.ch;
+      }
+
+      cur = cur.next;
+    }
+
+    return str;
+  }
+
+  // get all charactors together
+  debug() {
+    let cur = this.head.next;
+    let str = '';
+    while (cur !== this.tail) {
+      if (cur.val.del) {
+        str += ' ';
+      } else {
         str += cur.val.ch;
       }
 
