@@ -12,8 +12,8 @@ class Node {
 // A linked-list CRDT text obj
 export default class Text {
   constructor() {
-    this.head = new Node(new Chr(-1, -1, -1));
-    this.tail = new Node(new Chr(-1, -1, -1));
+    this.head = new Node(new Chr(-1, 0, 0));
+    this.tail = new Node(new Chr(-1, 0, 0));
     this.count = 0; // actual count
     this.length = 0;
     this.head.next = this.tail;
@@ -63,10 +63,11 @@ export default class Text {
       cur = cur.next;
     }
 
-    // remove the location by setting the flag
-    cur.val.del = true;
-
-    this.length--;
+    if (!cur.val.del) {
+      // remove the location by setting the flag
+      cur.val.del = true;
+      this.length--;
+    }
   }
 
   // [outside replica] remove a chr
@@ -104,10 +105,11 @@ export default class Text {
       return;
     }
 
-    // remove the location by setting the flag
-    cur.val.del = true;
-
-    this.length--;
+    if (!cur.val.del) {
+      // remove the location by setting the flag
+      cur.val.del = true;
+      this.length--;
+    }
   }
 
   // get all non-delete charactors together
