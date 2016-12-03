@@ -33,12 +33,12 @@ A    a1: e -> a2: a -> a3: t  => eat
 B    a1: e -> a2: a -> a3: t  => eat
 ```
 
-A insert `l` after `a2`:
+A inserts `l` after `a2`:
 ```
 A    a1: e -> a2: a -> a4: l -> a3: t  => ealt
 ```
 
-B insert `p` after `a2`:
+B inserts `p` after `a2`:
 ```
 B    a1: e -> a2: a -> b4: p -> a3: t  => eapt
 ```
@@ -52,9 +52,8 @@ B receives A's operation
 ```
 original
 A    a1: e -> a2: a -> b4: p -> a3: t  => eapt
-
-rule: *when ids equal, bigger user wins (b > a => b4 > a4)*
 ```
+Rule: *when ids equal, bigger user wins (b > a => b4 > a4)*
 
 `b4 > a4` and we skip greater items, thus
 ```
@@ -70,7 +69,7 @@ If replicas are deleting the same character, the result will only be reflected o
 
 ## Issues
 ### Slow
-$O(n)$ for both insertion and deletion, it's way too slow.
+`O(n)` for both insertion and deletion, it's way too slow.
 
 An alternative way to design is to build a x-nary searched tree and could make real number id, eg, insert an character between `1` and `2` will end up with id `1.3`. Then we can always keep the order. You may find [treedoc](https://hal.inria.fr/inria-00445975/document) useful.
 
@@ -78,11 +77,13 @@ An alternative way to design is to build a x-nary searched tree and could make r
 Deletion is marking a flag instead actual deleted. As data grows, we need to garbage collect from time to time.
 
 ## Test
-Test cases are in `test.js`, please run the tests by `../node_modules/.bin/mocha --compilers js:babel-core/register` in `CRDT` folder.
+Test cases are in `test.js`, please run the tests by
+`../node_modules/.bin/mocha --compilers js:babel-core/register`
+in `CRDT` folder.
 
 ## Reference
-[1] [H.-G. Roh, M. Jeon, J.-S. Kim, and J. Lee, “Replicated abstract data
-types: Building blocks for collaborative applications,” Journal of
-Parallel and Distributed Computing, vol. 71, no. 3, pp. 354–368, 2011.](http://dl.acm.org/citation.cfm?id=1931272)
+[1] [H.-G. Roh, M. Jeon, J.-S. Kim, and J. Lee, “Replicated abstract data types: Building blocks for collaborative applications,” Journal of Parallel and Distributed Computing, vol. 71, no. 3, pp. 354–368, 2011.](http://dl.acm.org/citation.cfm?id=1931272)
+
 [2] [https://arxiv.org/pdf/1608.03960v1.pdf](https://arxiv.org/pdf/1608.03960v1.pdf)
+
 [3] [https://hal.inria.fr/inria-00445975/document](https://hal.inria.fr/inria-00445975/document)
