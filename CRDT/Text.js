@@ -23,6 +23,10 @@ export default class Text {
     return this.length;
   }
 
+  cnt() {
+    return this.count;
+  }
+
   //[inside replica] add a node at location `loc`
   // `loc` should alwayws be valid because it only triggered when there is a change in editor
   add(loc, chr) {
@@ -68,6 +72,8 @@ export default class Text {
       cur.val.del = true;
       this.length--;
     }
+
+    return cur.val.getChrId();
   }
 
   // [outside replica] remove a chr
@@ -76,7 +82,7 @@ export default class Text {
     let node = new Node(chr);
 
     let cur = this.head;
-    while (cur.val.getChrId() !== preChrId) {
+    while (cur.next !== this.tail && cur.val.getChrId() !== preChrId) {
       cur = cur.next;
     }
 

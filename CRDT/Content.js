@@ -17,20 +17,22 @@ export default class Content {
   apply(loc, type, ch) {
     if (type === 'ins') {
       let chr = new Chr(this.user, ch, this.id);
-      this.text.add(loc, chr);
-      this.id = this.text.len();
-    } else if (type === 'del') {
-      this.text.remove(loc);
-    } else {
-      // do nothing
-      return;
+      let preChrId = this.text.add(loc, new Chr(this.user, ch, this.id));
+      this.id = this.text.cnt();
+      return new Insert(preChrId, chr);
+    }
+
+    if (type === 'del') {
+      return new Delete(this.text.remove(loc));
     }
   }
 
   // apply an inter-replica insert
   applyInsert(ins) {
+    console.log(this.text.toString());
     this.text.addAfter(ins.preChrId, ins.chr);
-    this.id = this.text.len();
+    console.log(this.text.toString());
+    this.id = this.text.cnt();
   }
 
   // apply an inter-replica Delete
