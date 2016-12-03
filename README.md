@@ -4,6 +4,13 @@ Collaborative Editing: Concepts behind the scene and a simple demo
 ## Design
 We use a simple list-based CRDT to implement collaborate editor, please go to `/CRDT` folder for more information.
 
+We assume end users are talking to two data centers and there is a network partition. **Commit** means the replica is pushing operations to other replicas. **Sync** means the replica is receiving updates from other replicas. The system is not real-time, each step requires a click.
+
+Will make sure:
+* Eventual delivery
+* No conflict
+* Lossless
+
 ### Demo
 ![](meta/out_big.gif)
 
