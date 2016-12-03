@@ -1,6 +1,15 @@
 # A-Tour-of-Colleberative-Editing
 Collaborative Editing: Concepts behind the scene and a simple demo
 
+## Design
+We use a simple list-based CRDT to implement collaborate editor, please go to `/CRDT` folder for more information.
+
+### Demo
+![](meta/out.gif)
+
+### TODO
+My initial design was to utilize user system and make people really collaborate over browsers. According to the limited time for this project, I compromised and only implemented a naive demo with two editors inside.
+
 ### Credits:
 - Huge thanks to [Aqua](https://github.com/jedireza/aqua) for boilerplate.
 - [Freepik](http://www.flaticon.com/authors/freepik), [Madebyoliver](http://www.flaticon.com/authors/madebyoliver) for free Icon.
