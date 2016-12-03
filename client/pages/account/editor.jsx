@@ -134,8 +134,10 @@ class Editor extends React.Component {
             </div>
           </div>
           <div className="col-lg-3">
-          <h3> Uncommited operations: </h3>
-            {this.state.logItems}
+            <h3> Uncommited operations: </h3>
+            <div style={{overflow: 'scroll', height: 150}}>
+              {this.state.logItems}
+            </div>
           </div>
         </div>
       </section>

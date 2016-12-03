@@ -11,10 +11,15 @@ Will make sure:
 * No conflict
 * Lossless
 
+### TODO
+* Implement selection a range inside the editor (batch deletion)
+* Support undo/redo in each replica
+* Support other languages rather than English
+
 ### Demo
 ![](meta/out_big.gif)
 
-### TODO
+### Future Work
 My initial design was to utilize user system and make people really collaborate over browsers. According to the limited time for this project, I compromised and only implemented a naive demo with two editors inside.
 
 ### Credits:
