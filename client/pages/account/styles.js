@@ -4,10 +4,10 @@ import React from 'react';
 export const styles = {
   fontFamily: '\'Indie Flower\', cursive',
   padding: 20,
-  width: 'inherit',
+  width: 600,
   fontSize: 'large',
   cursor: 'text',
-  minHeight: 250,
+  minHeight: 200,
   marginTop: 10,
   boxShadow: 'none',
 };
@@ -27,5 +27,35 @@ export class SaveImg extends React.Component {
       style={{width: 50, height: 50}}
       src="/public/media/save.png"
     />;
+  }
+}
+
+export class EditorTitle extends React.Component {
+  render() {
+    return <h2 className="page-header">
+      <img
+        className="navbar-logo"
+        src="/public/media/logo.png"
+        />
+        Node {this.props.node}
+    </h2>;
+  }
+}
+
+export class InsertItem extends React.Component {
+  render() {
+    return <h3>
+      <span className="glyphicon glyphicon-plus"></span>
+       . Insert {this.props.chr} at location {this.props.loc}
+      </h3>;
+  }
+}
+
+export class DeleteItem extends React.Component {
+  render() {
+    return <h3>
+      <span className="glyphicon glyphicon-minus"></span>
+       . Delete at location {this.props.loc}
+      </h3>;
   }
 }

@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
-import {styles, SyncImg, SaveImg} from './styles';
+import {styles, SyncImg, SaveImg, EditorTitle, InsertItem, DeleteItem}
+from './styles';
 
 import Content from '../../../CRDT/Content';
 import Delete from '../../../CRDT/Delete';
@@ -10,7 +11,7 @@ class Editor extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: '', len: 0};
+    this.state = {value: '', len: 0, logs: []};
     this.content = new Content(this.props.me);
     this.getCursor = this.getCursor.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -70,8 +71,9 @@ class Editor extends React.Component {
   render() {
     return (
       <section className="section-home container">
+        <EditorTitle node={this.props.me} />
         <div className="row">
-          <div className="col-lg-8">
+          <div className="col-lg-7">
             <textarea
               ref='text'
               id='text'
@@ -80,7 +82,7 @@ class Editor extends React.Component {
               onChange={this.onChange}
             />
           </div>
-          <div className="col-lg-4">
+          <div className="col-lg-2">
             <div style={{marginTop: 10}}>
               <SyncImg />
               <button
@@ -100,6 +102,10 @@ class Editor extends React.Component {
                 Commit
               </button>
             </div>
+          </div>
+          <div className="col-lg-3">
+            <InsertItem chr='a' loc={0}/>
+            <DeleteItem loc={5} />
           </div>
         </div>
       </section>

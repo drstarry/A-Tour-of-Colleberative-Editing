@@ -15,8 +15,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <section className="section-home container">
-        <Editor me={0} peer={1}/>
-        <Editor me={1} peer={0}/>
+        <Editor me={1} peer={2}/>
+        <Editor me={2} peer={1}/>
       </section>
     );
   }
