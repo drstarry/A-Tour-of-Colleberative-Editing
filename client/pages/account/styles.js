@@ -5,7 +5,7 @@ export const styles = {
   fontFamily: '\'Indie Flower\', cursive',
   padding: 20,
   width: 600,
-  fontSize: 'large',
+  fontSize: 30,
   cursor: 'text',
   minHeight: 200,
   marginTop: 10,
@@ -45,8 +45,7 @@ export class EditorTitle extends React.Component {
 export class InsertItem extends React.Component {
   render() {
     return <h3>
-      <span className="glyphicon glyphicon-plus"></span>
-       . Insert {this.props.chr} at location {this.props.loc}
+      <span className="glyphicon glyphicon-plus"></span> {this.props.chr} at location {this.props.loc}
       </h3>;
   }
 }
@@ -54,8 +53,7 @@ export class InsertItem extends React.Component {
 export class DeleteItem extends React.Component {
   render() {
     return <h3>
-      <span className="glyphicon glyphicon-minus"></span>
-       . Delete at location {this.props.loc}
+      <span className="glyphicon glyphicon-minus"></span> at location {this.props.loc}
       </h3>;
   }
 }

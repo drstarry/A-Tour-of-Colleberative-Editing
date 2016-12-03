@@ -9,14 +9,15 @@ class HomePage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.props = new Array();
+    this.state = {ops: new Array(new Array(0), new Array(0))};
   }
 
   render() {
+    console.log(this.props.ops);
     return (
       <section className="section-home container">
-        <Editor me={1} peer={2}/>
-        <Editor me={2} peer={1}/>
+        <Editor me={0} peer={1} ops={this.state.ops}/>
+        <Editor me={1} peer={0} ops={this.state.ops}/>
       </section>
     );
   }
