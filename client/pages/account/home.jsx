@@ -2,8 +2,6 @@
 import React from 'react';
 
 import Editor from './editor';
-import Delete from '../../../CRDT/Delete';
-import Insert from '../../../CRDT/Insert';
 
 class HomePage extends React.Component {
 
@@ -13,7 +11,6 @@ class HomePage extends React.Component {
   }
 
   render() {
-    console.log(this.props.ops);
     return (
       <section className="section-home container">
         <Editor me={0} peer={1} ops={this.state.ops}/>
