@@ -98,7 +98,7 @@ describe('My CRDT Test', () => {
       expect(textB.toString()).to.be.equal('DDoSs');
     });
 
-    it('insert inter replicas on same location (idempotent)', () => {
+    it('insert inter replicas on same location (converge on all replicas)', () => {
       textA.add(0, new Chr(0, 'D', 0));
       textA.add(1, new Chr(0, 'o', 1));
       textA.add(2, new Chr(0, 'S', 2));
