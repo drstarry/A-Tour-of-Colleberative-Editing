@@ -39,7 +39,8 @@ Gulp.task('webpack', (callback) => {
     entry: {
       account: './client/pages/account/index',
       login: './client/pages/login/index',
-      signup: './client/pages/signup/index'
+      signup: './client/pages/signup/index',
+      demo: './client/pages/demo/index',
     },
     output: {
       path: './public/pages',
