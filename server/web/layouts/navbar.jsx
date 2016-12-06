@@ -38,10 +38,7 @@ class Navbar extends React.Component {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className={this.tabClass('home')}>
-                <a href="/">Introduction</a>
-              </li>
-              <li className={this.tabClass('about')}>
-                <a href="/about">About</a>
+                <a href="/">About</a>
               </li>
             </ul>
           </div>

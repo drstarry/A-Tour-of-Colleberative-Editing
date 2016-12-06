@@ -10,7 +10,7 @@ class Footer extends React.Component {
       <div style={{ marginBottom: 20}} className="footer">
         <div className="container">
           <span className="copyright pull-right">
-          &copy; {year} <a href="https://github.com/drstarry">Starry</a>
+          &copy; {year} <a href="https://github.com/drstarry/A-Tour-of-Colleberative-Editing">Starry</a>
           </span>
         </div>
       </div>
