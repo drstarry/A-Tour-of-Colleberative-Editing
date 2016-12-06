@@ -1,7 +1,7 @@
 /* global window */
 'use strict';
 
-import  Form from './form.jsx';
+import HomePage from './home';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -9,7 +9,7 @@ class Page {
   static blastoff() {
 
     this.mainElement = ReactDOM.render(
-      <Home />,
+      <HomePage />,
       window.document.getElementById('app-mount')
     );
   }

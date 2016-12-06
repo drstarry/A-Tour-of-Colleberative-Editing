@@ -2,7 +2,6 @@
 import React from 'react';
 
 import Editor from './editor';
-// import Footer from './footer';
 
 class HomePage extends React.Component {
 
