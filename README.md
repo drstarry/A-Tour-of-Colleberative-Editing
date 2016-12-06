@@ -17,7 +17,7 @@ Will make sure:
 * Support other languages rather than English
 
 ### Demo
-![](meta/out_big.gif)
+![](meta/out.gif)
 
 ### Future Work
 My initial design was to utilize user system and make people really collaborate over browsers. According to the limited time for this project, I compromised and only implemented a naive demo with two editors inside.

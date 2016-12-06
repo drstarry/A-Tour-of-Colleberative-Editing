@@ -64,7 +64,6 @@ class Editor extends React.Component {
 
   // pull operations from peer
   sync() {
-    console.log(this.props.ops[this.props.peer]);
     let len = this.props.ops[this.props.peer].length;
     let idx = this.state.idx;
     while (idx < len) {

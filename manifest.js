@@ -180,12 +180,6 @@ const manifest = {
         {
             plugin: './server/web/signup'
         },
-        // {
-        //     plugin: './server/public/assets',
-        //     options: {
-        //         routes: { prefix: '/assets' }
-        //     }
-        // },
     ]
 };
 
