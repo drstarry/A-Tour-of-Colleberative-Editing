@@ -17,6 +17,8 @@ Will make sure:
 * Support other languages rather than English
 
 ### Demo
+For live demo, please play [here](http://starryvm.westus.cloudapp.azure.com:8000/)
+
 ![](meta/out.gif)
 
 ### Future Work
@@ -61,6 +63,12 @@ re-build those automatically too.
 
 ```bash
 $ node server.js
+```
+
+Use `forever` to run the application in background!
+```bash
+$ npm install -g forever
+$ forever start server.js
 ```
 
 This doesn't watch for file changes. Also be sure to set
