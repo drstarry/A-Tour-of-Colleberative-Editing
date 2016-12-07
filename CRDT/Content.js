@@ -29,9 +29,7 @@ export default class Content {
 
   // apply an inter-replica insert
   applyInsert(ins) {
-    console.log(this.text.toString());
     this.text.addAfter(ins.preChrId, ins.chr);
-    console.log(this.text.toString());
     this.id = this.text.cnt();
   }
 
