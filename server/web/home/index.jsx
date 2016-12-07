@@ -11,16 +11,21 @@ class HomePage extends React.Component {
       title="About us"
       activeTab="home">
       <div className="row">
-        <div className="col-sm-2"></div>
-        <div className="col-sm-8">
+        <div className="col-sm-1"></div>
+        <div className="col-sm-9">
           <h1> Welcome to the tour of collaborate editing! </h1>
-          <h2> Playing with demo </h2>
+          <br/>
+          <h2>Spotlight</h2>
+          <p><img src='public/media/out.gif' alt="" /></p>
+          <br/>
+          <h2>Operations</h2>
           <h3>
             * Sync: Pull operations from other replicas.
           </h3>
           <h3>
             * Commit: Commit local operations to other replicas.
           </h3>
+          <br/>
           <h2> More information </h2>
           <h3>
            * My source code
