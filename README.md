@@ -16,7 +16,8 @@ Will make sure:
 * Support other languages rather than English
 
 ### Demo
-For live demo, please play [here](http://starryvm.westus.cloudapp.azure.com:8000/)
+For live demo, please play [here](http://starryvm.westus.cloudapp.azure.com:8000/).
+Please also refer to this [blog](http://drstarry.github.io/2016/12/05/edit/).
 
 ![](meta/out.gif)
 
