@@ -1,7 +1,7 @@
-# A list-based CRDT
+# A list-based CmRDT
 
 ## Overview
-This is the CRDT model for collaborative text editing. It's quite simple and straightforward in both intuition and implementation.
+This is the model for demo. It's quite simple and straightforward in both intuition and implementation.
 
 ## Design
 ### Chr
@@ -23,7 +23,7 @@ Head and tail nodes are dummy.
 ### Content
 This is the content object of a `Content` object. Except a `Text` object inside, it contains meta data like owner(replica who owns this current `Content`) and an increasing `id` for `Chr` object.
 
-### Out of Order
+### Commutative
 Each replica should have deterministic result given different order of operations.
 I enforce this by giving a rule for insertion.
 eg.
@@ -68,13 +68,15 @@ This is a simple rule, people will define their own.
 If replicas are deleting the same character, the result will only be reflected once, because each character is unique.
 
 ## Issues
+The model is a very naive approach and suffers from many issues.
+
 ### Slow
 `O(n)` for both insertion and deletion, it's way too slow.
 
-An alternative way to design is to build a x-nary searched tree and could make real number id, eg, insert an character between `1` and `2` will end up with id `1.3`. Then we can always keep the order. You may find [treedoc](https://hal.inria.fr/inria-00445975/document) useful.
+An alternative way to design is to build a x-nary searched tree and could make real number id, eg, insert an character between `1` and `2` will end up with id `1.3`. Then we can always keep the order.
 
 ### GC
-Deletion is marking a flag instead actual deleted. As data grows, we need to garbage collect from time to time.
+Deletion is marking a flag instead actual deleted. As data  will grow unbounded, we need to garbage collect from time to time.
 
 ## Test
 Test cases are in `test.js`, please run the tests by
@@ -85,5 +87,3 @@ in `CRDT` folder.
 [1] [H.-G. Roh, M. Jeon, J.-S. Kim, and J. Lee, “Replicated abstract data types: Building blocks for collaborative applications,” Journal of Parallel and Distributed Computing, vol. 71, no. 3, pp. 354–368, 2011.](http://dl.acm.org/citation.cfm?id=1931272)
 
 [2] [https://arxiv.org/pdf/1608.03960v1.pdf](https://arxiv.org/pdf/1608.03960v1.pdf)
-
-[3] [https://hal.inria.fr/inria-00445975/document](https://hal.inria.fr/inria-00445975/document)

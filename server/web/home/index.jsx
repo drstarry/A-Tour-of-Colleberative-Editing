@@ -33,7 +33,7 @@ class HomePage extends React.Component {
           </h3>
           <h3>
            * A more comprehensive
-            <a href="https://github.com/drstarry/A-Tour-of-Colleberative-Editing"> blog</a>
+            <a href="http://drstarry.github.io/2016/12/05/edit/"> blog</a>
           </h3>
         </div>
       </div>
