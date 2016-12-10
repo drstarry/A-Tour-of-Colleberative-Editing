@@ -16,8 +16,8 @@ export default class Content {
   // apply an inner-replica operation
   apply(loc, type, ch) {
     if (type === 'ins') {
-      let chr = new Chr(this.user, ch, this.id);
-      let preChrId = this.text.add(loc, new Chr(this.user, ch, this.id));
+      const chr = new Chr(this.user, ch, this.id);
+      const preChrId = this.text.add(loc, new Chr(this.user, ch, this.id));
       this.id = this.text.cnt();
       return new Insert(preChrId, chr);
     }

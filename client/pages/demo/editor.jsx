@@ -54,7 +54,7 @@ class Editor extends React.Component {
     // IE Support
     if (document.selection) {
       text.focus();
-      let Sel = document.selection.createRange();
+      const Sel = document.selection.createRange();
       Sel.moveStart('character', -text.value.length);
       CaretPos = Sel.text.length;
     } else if (text.selectionStart || text.selectionStart == '0')
@@ -85,7 +85,7 @@ class Editor extends React.Component {
 
   // push operations to peer
   commit() {
-    for (let x in this.state.logs) {
+    for (const x in this.state.logs) {
       this.props.ops[this.props.me].push(this.state.logs[x]);
     }
 
