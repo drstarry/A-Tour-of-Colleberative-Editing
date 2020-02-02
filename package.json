@@ -29,7 +29,7 @@
     "eslint-plugin-react": "^6.6.0",
     "glue": "4.x.x",
     "handlebars": "4.x.x",
-    "hapi": "15.x.x",
+    "hapi": "18.x.x",
     "hapi-auth-cookie": "6.x.x",
     "hapi-mongo-models": "6.x.x",
     "hapi-react-views": "9.x.x",
