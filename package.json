@@ -82,7 +82,7 @@
     "lodash": "4.x.x",
     "merge-stream": "1.x.x",
     "mocha": "^3.1.2",
-    "moment": "2.15.x",
+    "moment": "2.24.x",
     "nodemon": "1.x.x",
     "promptly": "2.x.x",
     "proxyquire": "1.x.x",
