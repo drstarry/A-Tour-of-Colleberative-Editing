@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "async": "2.x.x",
-    "bcrypt": "0.8.x",
+    "bcrypt": "5.0.x",
     "boom": "4.x.x",
     "classnames": "2.x.x",
     "confidence": "3.x.x",
