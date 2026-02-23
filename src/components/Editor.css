@@ -1,0 +1,118 @@
+.editor-section {
+  margin-bottom: 2rem;
+}
+
+.editor-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.editor-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.editor-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.editor-textarea-wrap {
+  flex: 1;
+}
+
+.editor-textarea {
+  font-family: 'Indie Flower', cursive;
+  padding: 20px;
+  width: 100%;
+  font-size: 1.5rem;
+  cursor: text;
+  min-height: 200px;
+  margin-top: 10px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.editor-textarea:focus {
+  outline: none;
+  border-color: #66afe9;
+}
+
+.editor-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 10px;
+}
+
+.editor-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.btn {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn-sync {
+  background-color: #f0ad4e;
+}
+
+.btn-sync:hover {
+  background-color: #ec971f;
+}
+
+.btn-commit {
+  background-color: #5cb85c;
+}
+
+.btn-commit:hover {
+  background-color: #449d44;
+}
+
+.op-log {
+  min-width: 200px;
+}
+
+.op-log h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.op-log-entries {
+  overflow-y: auto;
+  max-height: 150px;
+}
+
+.op-log-entry {
+  font-size: 0.9rem;
+  padding: 2px 0;
+}
+
+.op-insert {
+  color: #5cb85c;
+}
+
+.op-delete {
+  color: #d9534f;
+}
