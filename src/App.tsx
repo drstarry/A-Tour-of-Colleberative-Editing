@@ -3,6 +3,8 @@ import Editor from './components/Editor';
 import type { Operation } from './types';
 import './App.css';
 
+const base = import.meta.env.BASE_URL;
+
 export default function App() {
   const [ops] = useState<Operation[][]>(() => [[], []]);
 
@@ -10,7 +12,7 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-top">
-          <img src="/topo.png" alt="topology" className="header-topo" />
+          <img src={`${base}topo.png`} alt="topology" className="header-topo" />
           <h1>A Tour of Collaborative Editing</h1>
         </div>
         <p className="header-sub">

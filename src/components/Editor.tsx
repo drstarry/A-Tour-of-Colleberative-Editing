@@ -4,6 +4,8 @@ import type { Operation, LogEntry, EditorProps } from '../types';
 import OperationLog from './OperationLog';
 import './Editor.css';
 
+const base = import.meta.env.BASE_URL;
+
 const NODE_STYLES = [
   { color: '#5a9eaa', glow: 'rgba(90,158,170,0.25)', tilt: '-0.6deg' },
   { color: '#e67e73', glow: 'rgba(230,126,115,0.25)', tilt: '0.5deg' },
@@ -79,7 +81,7 @@ export default function Editor({ me, peer, ops }: EditorProps) {
       style={{ '--node-color': color, '--node-glow': glow, '--card-tilt': tilt } as React.CSSProperties}
     >
       <h2 className="editor-title">
-        <img className="editor-logo" src="/logo.png" alt="logo" />
+        <img className="editor-logo" src={`${base}logo.png`} alt="logo" />
         Node {me}
       </h2>
       <textarea
@@ -91,11 +93,11 @@ export default function Editor({ me, peer, ops }: EditorProps) {
       />
       <div className="editor-actions">
         <button className="btn btn-commit" onClick={commit}>
-          <img className="action-icon" src="/save.png" alt="commit" />
+          <img className="action-icon" src={`${base}save.png`} alt="commit" />
           Commit
         </button>
         <button className="btn btn-sync" onClick={sync}>
-          <img className="action-icon" src="/update.png" alt="sync" />
+          <img className="action-icon" src={`${base}update.png`} alt="sync" />
           Sync
         </button>
       </div>
