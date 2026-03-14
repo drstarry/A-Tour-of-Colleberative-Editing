@@ -4,6 +4,11 @@ import type { Operation, LogEntry, EditorProps } from '../types';
 import OperationLog from './OperationLog';
 import './Editor.css';
 
+const NODE_STYLES = [
+  { color: '#5a9eaa', glow: 'rgba(90,158,170,0.25)', tilt: '-0.6deg' },
+  { color: '#e67e73', glow: 'rgba(230,126,115,0.25)', tilt: '0.5deg' },
+];
+
 export default function Editor({ me, peer, ops }: EditorProps) {
   const content = useRef(new Content(me));
   const [value, setValue] = useState('');
@@ -11,6 +16,8 @@ export default function Editor({ me, peer, ops }: EditorProps) {
   const idx = useRef(0);
   const [logEntries, setLogEntries] = useState<LogEntry[]>([]);
   const textRef = useRef<HTMLTextAreaElement>(null);
+
+  const { color, glow, tilt } = NODE_STYLES[me] ?? NODE_STYLES[0]!;
 
   function getCursor(): number {
     const text = textRef.current;
@@ -67,36 +74,32 @@ export default function Editor({ me, peer, ops }: EditorProps) {
   }
 
   return (
-    <section className="editor-section">
+    <section
+      className="editor-section"
+      style={{ '--node-color': color, '--node-glow': glow, '--card-tilt': tilt } as React.CSSProperties}
+    >
       <h2 className="editor-title">
         <img className="editor-logo" src="/logo.png" alt="logo" />
         Node {me}
       </h2>
-      <div className="editor-layout">
-        <div className="editor-textarea-wrap">
-          <textarea
-            ref={textRef}
-            className="editor-textarea"
-            value={value}
-            onChange={onChange}
-          />
-        </div>
-        <div className="editor-actions">
-          <div className="editor-action">
-            <img className="action-icon" src="/update.png" alt="sync" />
-            <button className="btn btn-sync" onClick={sync}>
-              Sync
-            </button>
-          </div>
-          <div className="editor-action">
-            <img className="action-icon" src="/save.png" alt="commit" />
-            <button className="btn btn-commit" onClick={commit}>
-              Commit
-            </button>
-          </div>
-        </div>
-        <OperationLog entries={logEntries} />
+      <textarea
+        ref={textRef}
+        className="editor-textarea"
+        value={value}
+        onChange={onChange}
+        placeholder="Start typing here..."
+      />
+      <div className="editor-actions">
+        <button className="btn btn-commit" onClick={commit}>
+          <img className="action-icon" src="/save.png" alt="commit" />
+          Commit
+        </button>
+        <button className="btn btn-sync" onClick={sync}>
+          <img className="action-icon" src="/update.png" alt="sync" />
+          Sync
+        </button>
       </div>
+      <OperationLog entries={logEntries} />
     </section>
   );
 }

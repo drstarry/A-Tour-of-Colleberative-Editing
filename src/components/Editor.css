@@ -1,112 +1,148 @@
+/* ── Card ────────────────────────────────────── */
 .editor-section {
-  margin-bottom: 2rem;
+  background: #fffef9;
+  border-radius: 6px;
+  border: 2px solid #e0d8c8;
+  box-shadow: 3px 3px 0px #d4cbb8;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid var(--node-color);
+  transform: rotate(var(--card-tilt, 0deg));
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.editor-section:hover {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: 4px 5px 0px #d4cbb8;
+}
+
+/* ── Title ───────────────────────────────────── */
 .editor-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.4rem;
+  font-weight: 400;
   margin-bottom: 1rem;
+  color: var(--node-color);
+  border-bottom: 2px dashed #e0d8c8;
+  padding-bottom: 0.5rem;
 }
 
 .editor-logo {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 }
 
-.editor-layout {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.editor-textarea-wrap {
-  flex: 1;
-}
-
+/* ── Textarea ────────────────────────────────── */
 .editor-textarea {
   font-family: 'Indie Flower', cursive;
-  padding: 20px;
+  padding: 16px;
   width: 100%;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   cursor: text;
   min-height: 200px;
-  margin-top: 10px;
-  box-shadow: none;
-  border: 1px solid #ccc;
+  border: 2px dashed #d4cbb8;
   border-radius: 4px;
   resize: vertical;
   box-sizing: border-box;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  line-height: 1.6;
 }
 
 .editor-textarea:focus {
   outline: none;
-  border-color: #66afe9;
+  border-style: solid;
+  border-color: var(--node-color);
+  box-shadow: 2px 2px 0px var(--node-glow);
+  background: #fff;
 }
 
+/* ── Action buttons ──────────────────────────── */
 .editor-actions {
   display: flex;
-  flex-direction: column;
   gap: 0.75rem;
-  padding-top: 10px;
-}
-
-.editor-action {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.action-icon {
-  width: 50px;
-  height: 50px;
+  margin-top: 1rem;
 }
 
 .btn {
-  padding: 6px 16px;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 8px 16px;
+  border: 2px solid;
   border-radius: 4px;
-  font-size: 1rem;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.05rem;
+  font-weight: 400;
   cursor: pointer;
-  color: #fff;
+  transition: transform 0.1s, box-shadow 0.1s;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.btn .action-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .btn-sync {
-  background-color: #f0ad4e;
+  background-color: #e8f4f6;
+  border-color: #5a9eaa;
+  color: #3d8a95;
 }
 
 .btn-sync:hover {
-  background-color: #ec971f;
+  background-color: #d6ecef;
 }
 
 .btn-commit {
-  background-color: #5cb85c;
+  background-color: #e8f5e8;
+  border-color: #5cb85c;
+  color: #3d8a3d;
 }
 
 .btn-commit:hover {
-  background-color: #449d44;
+  background-color: #d4eed4;
 }
 
+/* ── Operation log ───────────────────────────── */
 .op-log {
-  min-width: 200px;
+  margin-top: 1rem;
+  border-top: 2px dashed #e0d8c8;
+  padding-top: 0.75rem;
 }
 
 .op-log h3 {
-  font-size: 1rem;
+  font-family: 'Indie Flower', cursive;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #aaa;
   margin: 0 0 0.5rem;
 }
 
 .op-log-entries {
   overflow-y: auto;
-  max-height: 150px;
+  max-height: 140px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .op-log-entry {
-  font-size: 0.9rem;
-  padding: 2px 0;
+  padding: 1px 0;
 }
 
 .op-insert {
@@ -115,4 +151,10 @@
 
 .op-delete {
   color: #d9534f;
+}
+
+.op-log-empty {
+  color: #c8c0b0;
+  font-style: italic;
+  font-size: 0.95rem;
 }

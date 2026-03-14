@@ -9,8 +9,10 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <img src="/topo.png" alt="topology" className="header-topo" />
-        <h1>A Tour of Collaborative Editing</h1>
+        <div className="header-top">
+          <img src="/topo.png" alt="topology" className="header-topo" />
+          <h1>A Tour of Collaborative Editing</h1>
+        </div>
         <p className="header-sub">
           A list-based CmRDT demo. Type in one editor, <strong>Commit</strong> to
           push operations, then <strong>Sync</strong> in the other to pull.

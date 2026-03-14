@@ -8,7 +8,7 @@ Please also refer to this [blog](https://drstarry.github.io/posts/2016-12-05-col
 
 Two in-browser editors share a CRDT document. **Commit** pushes operations to the peer; **Sync** pulls them in. The editors converge regardless of operation order.
 
-![](meta/out.gif)
+![](meta/demo.png)
 
 ## Guarantees
 
